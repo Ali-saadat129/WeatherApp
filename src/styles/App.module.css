@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    background-image: url(../../icons/pic/sunback.jpg);
+    background-image: url(../icons/pic/sunback.jpg);
     background-size: cover;
     object-fit: cover;
 
@@ -20,7 +20,7 @@
 .App .headermeno h1{
     font-size: 2.8rem;
     color: white;
-    border: 0.5px solid black;
+    border: 1.3px solid black;
     padding: 0 0.6rem;
     border-radius: 15%;
     -webkit-border-radius: 15%;
@@ -54,4 +54,42 @@
 .App .searchbar .inputparentt input {
     /* padding: 1rem 5rem; */
     width: 100%;
+}
+.middle-part{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.middle_part .middle_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+
+}
+.footer { 
+    display: flex;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35vh;
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+    padding-top:1rem ;
+    box-sizing: border-box;
+
+}
+.footer  .footer_parent { 
+    width: 100%;
+}
+
+
+.globalpart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    border: 1px solid black;
 }
