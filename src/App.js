@@ -14,30 +14,33 @@ import suncloudy from './icons/cludy_sun.png'
 import snow from './icons/snow.png'
 import sun from './icons/sun.png'
 // backgpund color 
-import snowback from './icons/pic/Snow.png'
-
+import snowback from './icons/pic/snowback.jpg'
+import sunback from './icons/pic/sunback.jpg'
 
 
 function App() {
 
-  // use states - input and resive data 
+  //  input and resive data 
   const [inputValue , setInputValue] = useState("")
+
+  // resive data -use state
   const [data,setdata] = useState([])
   const [city1,setcity1] = useState([])
   const [city2,setcity2] = useState([])
   const [city3,setcity3] = useState([])
 
-// background
-  const [bgstate , setbgstate] = useState({snowback})
-  console.log(bgstate)
-  const datalist = []
+  // error handler
+  const [error ,setError] = useState(false)
+  // background
+  const [bgstate , setbgstate] = useState(sunback)
+
 
   useEffect( () => {
     
-    Getapi(setdata,"Tehran")
-    Getapi(setcity1,"Tehran")
-    Getapi(setcity2,"London")
-    Getapi(setcity3,"New-york")
+    Getapi(setdata,"Tehran",setError)
+    Getapi(setcity1,"Tehran",setError)
+    Getapi(setcity2,"London",setError)
+    Getapi(setcity3,"vancouver",setError)
 
   },[])
   
@@ -48,24 +51,24 @@ function App() {
   // searching function (send data to server and recive data with api)
   const searcher = (event) =>{
     if(event.key == 'Enter'){
-      Getapi(setdata,event.target.value)
+      Getapi(setdata,event.target.value,setError)
+      if(data?.current?.temp_c <10){
+        setbgstate(snowback)
+        console.log("now have to change");
+      }else if(data?.current?.temp_c >10){
+        setbgstate(sunback)
+      }
     }
+   
   }
   // change background 
-  const backgroundController = (event) => {
-    const back = document.querySelector('.App')
-    back.style.backgroundColor = "blue"
-    //   back.style.backgroundColor = "blue"
-    // if(data?.current?.temp_c <20){
-    //   const back = document.querySelector('.App')
-    //   back.style.backgroundColor = "blue"
-    // }
-  }
+
 
 
 
   return (
-    <div className={` App ${Styles.App}`} onKeyDown={backgroundController} style={{backgroundImage:bgstate.image}}>
+    <div className={` App ${Styles.App}`}  style={{backgroundImage:`url(${bgstate})`}}>
+      {/* ------------------------- Top part ------------------- */}
       <div className={Styles.headermeno}> 
         <h1><FontAwesomeIcon icon={faGrip} /></h1>
       </div> 
@@ -73,9 +76,10 @@ function App() {
       <div className={`${Styles.searchbar}`}>
           <div className={`${Styles.inputparentt}`}> 
             <input type="text" className={`form-control`} placeholder="Search your town " value={inputValue} onChange={inputHandler} onKeyDown={searcher}></input>
+            {error&&<p>name of the city is wrong . </p>}
           </div>
       </div>
-
+{/* ----------------------middle part --------------------- */}
       <div className={`container-fluid ${Styles.middle_part}`}>
         <div className={` row ${Styles.middle_row}`}>
 
@@ -97,7 +101,8 @@ function App() {
           <div className="col-md-3" >&nbsp;</div>
         </div>
       </div>
-      
+      {/* -------------------------------- footer part ---------------------- */}
+
       <div className={` container-fluid ${Styles.footer}`} >
         <div className={` row ${Styles.footer_parent}`}>
 

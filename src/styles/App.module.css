@@ -55,6 +55,7 @@
     /* padding: 1rem 5rem; */
     width: 100%;
 }
+/* --------------- middle part ----------------- */
 .middle-part{
     display: flex;
     align-items: center;
@@ -67,6 +68,10 @@
     height: 40vh;
 
 }
+.info_part{
+    color: white;
+}
+/* ---------------------- footer --------------- */
 
 .footer { 
     display: flex;
