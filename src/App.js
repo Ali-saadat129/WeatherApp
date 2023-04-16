@@ -70,7 +70,10 @@ function App() {
     const setting = document.querySelector('#setting')
     setting.style.display = 'none'
   }
-
+// onclicl on down part 
+  const changedata = (city) => {
+    setdata(city)
+  }
 
 
   return (
@@ -90,11 +93,11 @@ function App() {
       <div className={`container-fluid ${Styles.middle_part}`}>
         <div className={` row ${Styles.middle_row}`}>
 
-          <div className={`col-6`}> 
+          <div className={`col-6 ${Styles.dataName}`}> 
             <h1>{data?.current?.temp_c}℃ / {data?.current?.temp_f}°F </h1>
           </div>
 
-          <div className={`col-6`}>
+          <div className={`col-6 ${Styles.dataName}`}>
             <h2>{data?.location?.name}</h2>
             <h2><img alt='weathericons' src={suncloudy}></img></h2>
           </div>
@@ -114,7 +117,7 @@ function App() {
         <div className={` row ${Styles.footer_parent}`}>
 
       
-          <div className={`col-4 ${Styles.globalpart}`}>
+          <div onClick={() => changedata(city1)} className={`col-4 ${Styles.globalpart}`}>
            <h3>{city1?.location?.country} /{city1?.location?.name}</h3>
             <p>Time : {city1?.location?.localtime}</p>
             <p> Temp : {city1?.current?.temp_c}℃  / {city1?.current?.temp_f} °F
@@ -126,7 +129,7 @@ function App() {
             <p>conditional : {city1?.current?.condition?.text}</p>
           </div>
 
-          <div className={`col-4 ${Styles.globalpart}`}>
+          <div onClick={() => changedata(city2)} className={`col-4 ${Styles.globalpart}`}>
            <h3>{city2?.location?.country} /{city2?.location?.name}</h3>
             <p>Time : {city2?.location?.localtime}</p>
             <p> Temp : {city2?.current?.temp_c}℃ / {city2?.current?.temp_f} °F
@@ -140,7 +143,7 @@ function App() {
 
           </div>
 
-          <div className={`col-4 ${Styles.globalpart}`}>
+          <div onClick={() => changedata(city3)} className={`col-4 ${Styles.globalpart}`}>
            <h3>{city3?.location?.country} /{city3?.location?.name}</h3>
             <p>Time : {city3?.location?.localtime}</p>
             <p> Temp : {city3?.current?.temp_c}℃  / {city3?.current?.temp_f} °F
