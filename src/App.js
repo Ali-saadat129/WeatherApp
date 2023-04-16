@@ -61,8 +61,15 @@ function App() {
     }
    
   }
-  // change background 
-
+  // open and close setting
+  const openSetting= () => {
+    const setting = document.querySelector('#setting')
+    setting.style.display = 'block'
+  } 
+  const closeSetting = () => {
+    const setting = document.querySelector('#setting')
+    setting.style.display = 'none'
+  }
 
 
 
@@ -70,7 +77,7 @@ function App() {
     <div className={` App ${Styles.App}`}  style={{backgroundImage:`url(${bgstate})`}}>
       {/* ------------------------- Top part ------------------- */}
       <div className={Styles.headermeno}> 
-        <h1><FontAwesomeIcon icon={faGrip} /></h1>
+        <h1 className={`${Styles.open}`} onClick={openSetting}><FontAwesomeIcon icon={faGrip} /></h1>
       </div> 
 
       <div className={`${Styles.searchbar}`}>
@@ -79,7 +86,7 @@ function App() {
             {error&&<p>name of the city is wrong . </p>}
           </div>
       </div>
-{/* ----------------------middle part --------------------- */}
+      {/* ----------------------middle part --------------------- */}
       <div className={`container-fluid ${Styles.middle_part}`}>
         <div className={` row ${Styles.middle_row}`}>
 
@@ -146,6 +153,22 @@ function App() {
             <p>conditional : {city3?.current?.condition?.text}</p>
             
           </div>
+        </div>
+      </div>
+
+      <div id='setting' className={`${Styles.setting}`}>
+        <p onClick={closeSetting} className={`${Styles.close}`}>close</p>
+        <div className={` ${Styles.settingHeader}`}>
+            <h4>alisaadt129@gmail.com</h4>
+        </div>
+        <div>
+          <ul className={`list-group`}>
+            <li className={`list-group-item`}>Home</li>
+            <li className={`list-group-item`}>Github</li>
+            <li className={`list-group-item`}>CV</li>
+            <li className={`list-group-item`}>Aout us</li>
+            <li className={`list-group-item`}>Help</li>
+          </ul>
         </div>
       </div>
 
