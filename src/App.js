@@ -85,7 +85,7 @@ function App() {
 
       <div className={`${Styles.searchbar}`}>
           <div className={`${Styles.inputparentt}`}> 
-            <input type="text" className={`form-control`} placeholder="Search your town " value={inputValue} onChange={inputHandler} onKeyDown={searcher}></input>
+            <input type="text" className={`form-control ${Styles.input}`} placeholder="Search your town " value={inputValue} onChange={inputHandler} onKeyDown={searcher}></input>
             {error&&<p>name of the city is wrong . </p>}
           </div>
       </div>
@@ -99,16 +99,18 @@ function App() {
 
           <div className={`col-6 ${Styles.dataName}`}>
             <h2>{data?.location?.name}</h2>
-            <h2><img alt='weathericons' src={suncloudy}></img></h2>
+            <h2 className={`${Styles.conditionimage}`}><img alt='weathericons' src={suncloudy}></img></h2>
           </div>
 
         </div>
         <div className={`row`}>
-          <div className="col-md-3" >&nbsp;</div>
+          <div className="col-2" >&nbsp;</div>
           <div className={`col-2 ${Styles.info_part}`}><h4>Condition : {data?.current?.condition?.text}</h4></div>
+          <div className="col-1" >&nbsp;</div>
           <div className={`col-2 ${Styles.info_part}`}><h4>Wind speed : {data?.current?.wind_kph}</h4></div>
+          <div className="col-1" >&nbsp;</div>
           <div className={`col-2 ${Styles.info_part}`}><h4>Time : {data?.location?.localtime}</h4></div>
-          <div className="col-md-3" >&nbsp;</div>
+          <div className="col-2" >&nbsp;</div>
         </div>
       </div>
       {/* -------------------------------- footer part ---------------------- */}
