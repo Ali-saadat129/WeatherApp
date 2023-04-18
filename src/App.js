@@ -39,7 +39,7 @@ function App() {
     
     Getapi(setdata,"Tehran",setError)
     Getapi(setcity1,"Tehran",setError)
-    Getapi(setcity2,"London",setError)
+    Getapi(setcity2,"africa",setError)
     Getapi(setcity3,"vancouver",setError)
 
   },[])
@@ -103,14 +103,14 @@ function App() {
           </div>
 
         </div>
-        <div className={`row`}>
-          <div className="col-2" >&nbsp;</div>
+        <div className={`row `}>
+          <div className=" col-2" >&nbsp;</div>
           <div className={`col-2 ${Styles.info_part}`}><h4>Condition : {data?.current?.condition?.text}</h4></div>
           <div className="col-1" >&nbsp;</div>
           <div className={`col-2 ${Styles.info_part}`}><h4>Wind speed : {data?.current?.wind_kph}</h4></div>
           <div className="col-1" >&nbsp;</div>
           <div className={`col-2 ${Styles.info_part}`}><h4>Time : {data?.location?.localtime}</h4></div>
-          <div className="col-2" >&nbsp;</div>
+          <div className="col-md-2" >&nbsp;</div>
         </div>
       </div>
       {/* -------------------------------- footer part ---------------------- */}
@@ -160,6 +160,7 @@ function App() {
           </div>
         </div>
       </div>
+      {/* ---------------------- ------------------------ */}
 
       <div id='setting' className={`${Styles.setting}`}>
         <p onClick={closeSetting} className={`${Styles.close}`}>close</p>

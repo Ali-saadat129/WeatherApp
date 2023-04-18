@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100vh;
+    height: fit-contentn;
     overflow-x: hidden !important;
     /* background-image: url(../icons/pic/sunback.jpg); */
     background-size: cover;
@@ -65,7 +65,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40vh;
+    height: fit-content;
+    margin: 8vh 0;
 
 }
 .info_part{
@@ -158,6 +159,14 @@ ul li:hover{
     }
     .middle_part .info_part h4 {
         font-size: 1rem !important;
+    }
+  
+    .settingHeader h4 {
+        font-size: 0.5rem;
+        
+    }
+    .globalpart h3 {
+        font-size: 1rem;
     }
     
   }
