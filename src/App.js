@@ -70,7 +70,7 @@ function App() {
     const setting = document.querySelector('#setting')
     setting.style.display = 'none'
   }
-// onclicl on down part 
+// oncliclk on down part 
   const changedata = (city) => {
     setdata(city)
   }
